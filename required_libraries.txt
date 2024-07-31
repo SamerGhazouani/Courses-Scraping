@@ -1,0 +1,14 @@
+pip install selenium # Automatization library
+
+# Don't forget to install the webdriver ('https://googlechromelabs.github.io/chrome-for-testing/')
+# Extract the downloaded file and move the chromedriver executable to a location in your system's PATH.
+
+pip install beautifulsoup4 # Scraping library
+
+pip install lxml # Faster parser than HTML
+
+pip install langdetect # To detect languages codes
+
+pip install langcodes # To translate languages codes to the actual name of that language
+
+pip install mysql-connector-python # To connect to the database
