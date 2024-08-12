@@ -23,18 +23,3 @@ def filter_unique_courses(courses):
 
     print(f"Total unique courses : {len(unique_courses)}")
     return unique_courses
-
-def save_to_txt(courses, filename):
-    with open(filename, 'w', encoding='utf-8') as f:
-        for course in courses:
-            f.write(f"Title: {course['title']}\n")
-            f.write(f"Description: {course['description']}\n")
-            f.write(f"Instructor: {course['instructor']}\n")
-            f.write(f"Duration: {course['duration']}\n")
-            f.write(f"Skills Acquired: {course['skills']}\n")
-            f.write(f"Level: {course['level']}\n")
-            f.write(f"Language: {course['language']}\n")
-            f.write(f"Price: {course['price']}\n")
-            f.write(f"Image Link: {course['img_link']}\n")
-            f.write(f"Course Link: {course['course_link']}\n")
-            f.write("\n")
