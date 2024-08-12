@@ -4,7 +4,7 @@ from insert_courses_to_database import insert_course, create_connection
 
 # This will be our main file where we get all the courses, filter them then add them to the database
 def main():
-    query = 'react'
+    query = 'developing'
     all_courses = combine_courses(query)
     unique_courses = filter_unique_courses(all_courses)
     filename = "courses.txt"

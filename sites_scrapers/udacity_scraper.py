@@ -52,7 +52,7 @@ def scrape_udacity_courses(query):
             # Sometimes the search results contain a link that's not valid anymore, so we need to check for that first
             if driver.find_elements(By.CSS_SELECTOR, 'div.css-12h0olz'):
                 continue
-            time.sleep(2)
+            time.sleep(3)
             try:
                 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.css-13a007i')))
             except:
@@ -92,10 +92,8 @@ def scrape_udacity_courses(query):
                     language = langcodes.Language.get(code).display_name()
             except LangDetectException:
                 language = 'Language not found'
-            # The price isn't always shown so we initiate it as not found and to look for it
-            price = 'Price not found'
-            if course_soup.select_one('div.css-kawto6'):
-                price = 'Paid'
+            # The price isn't always shown, but when it's free a sticker appear so we initiate it as 'Paid' and to look for that sticker
+            price = 'Paid'
             if course_soup.select_one('span.chakra-badge.css-voosbm'):
                 if course_soup.select_one('span.chakra-badge.css-voosbm').get_text(strip=True) == 'Free':
                     price = 'Free'

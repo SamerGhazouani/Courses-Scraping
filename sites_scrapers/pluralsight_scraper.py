@@ -51,7 +51,7 @@ def scrape_pluralsight_courses(query):
         # Now we navigate to the courses one by one and extract the data needed
         for i, course_link in enumerate(course_links):
             driver.get(course_link)
-            time.sleep(5)
+            time.sleep(6)
             # Sometimes the search results contain a link that's not valid anymore, so we need to check for that first
             if driver.find_elements(By.ID, 'content-error'):
                 continue

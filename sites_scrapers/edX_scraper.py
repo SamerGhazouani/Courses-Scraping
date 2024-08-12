@@ -48,7 +48,7 @@ def scrape_edx_courses(query):
         # After we get all the links we navigate to them one by one and extract the data needed
         for course_link in course_links:
             driver.get(course_link)
-            time.sleep(3)
+            time.sleep(6)
             # Sometimes the search results contain a link that's not valid anymore, so we need to check for that first
             if driver.find_elements(By.CSS_SELECTOR, 'div.school-details'):
                 continue

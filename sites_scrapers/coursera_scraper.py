@@ -56,7 +56,7 @@ def scrape_coursera_courses(query):
                 continue
             elif driver.find_elements(By.CSS_SELECTOR, 'div[data-testid="MtcUcert404"]'):
                 continue
-            time.sleep(2)
+            time.sleep(3)
 
             course_soup = BeautifulSoup(driver.page_source, 'lxml')
             # The title can be found in 4 types of elements, so we check them all
@@ -115,7 +115,7 @@ def scrape_coursera_courses(query):
             if course_soup.select('div.css-fk6qfz'):
                 course_details = course_soup.select('div.css-fk6qfz')
                 for dtl in course_details:
-                    if re.search(r'\d+', dtl.get_text(strip=True)) or any(keyword in dtl.get_text(strip=True).lower() for keyword in ['horas','hora','minutos','mese','meses']):
+                    if re.search(r'\d+', dtl.get_text(strip=True)) or any(keyword in dtl.get_text(strip=True).lower() for keyword in ['horas','hora','minutos','mese','meses','año','años','ساعة','دقيقة']):
                         if dtl.get_text(strip=True).find(' (')!=-1:
                             duration = dtl.get_text(strip=True)[:dtl.get_text(strip=True).find(' (')]
                         else :
@@ -176,7 +176,7 @@ def scrape_coursera_courses(query):
                 for information in informations:
                     if information.select_one('h2[data-test="at-a-glance-title"]'):
                         information_name = information.select_one('h2[data-test="at-a-glance-title"]')
-                        if any(keyword in information_name.get_text(strip=True).lower() for keyword in ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months','year','years','horas','hora','minutos','mese','meses']):
+                        if any(keyword in information_name.get_text(strip=True).lower() for keyword in ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months','year','years','horas','hora','minutos','mese','meses','año','años','ساعة','دقيقة']):
                             duration = information_name.get_text(strip=True)
             if duration == 'Duration not found' and price == 'Price not found' and course_soup.select('div.css-cvl6l2'):
                 informations = course_soup.select('div.css-cvl6l2')
@@ -184,7 +184,7 @@ def scrape_coursera_courses(query):
                 for information in informations:
                     if information.select_one('h2.css-af52lp'):
                         information_name = information.select_one('h2.css-af52lp')
-                        if any(keyword in information_name.get_text(strip=True).lower() for keyword in ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months','year','years','horas','hora','minutos','mese','meses']):
+                        if any(keyword in information_name.get_text(strip=True).lower() for keyword in ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months','year','years','horas','hora','minutos','mese','meses','año','años','ساعة','دقيقة']):
                             duration = information_name.get_text(strip=True)
             if duration == 'Duration not found' and price == 'Price not found' and course_soup.select('div.cds-9.css-1iuk6ex.cds-11.cds-grid-item.cds-44'):
                 informations = course_soup.select('div.cds-9.css-1iuk6ex.cds-11.cds-grid-item.cds-44')
@@ -192,7 +192,7 @@ def scrape_coursera_courses(query):
                 for information in informations:
                     if information.select_one('h2.cds-119.cds-Typography-base.css-h1jogs.cds-121'):
                         information_name = information.select_one('h2.cds-119.cds-Typography-base.css-h1jogs.cds-121')
-                        if any(keyword in information_name.get_text(strip=True).lower() for keyword in ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months','year','years','horas','hora','minutos','mese','meses']):
+                        if any(keyword in information_name.get_text(strip=True).lower() for keyword in ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months','year','years','horas','hora','minutos','mese','meses','año','años','ساعة','دقيقة']):
                             duration = information_name.get_text(strip=True)
             img_link = image_links[i] if i < len(image_links) else 'Image not found'
 
