@@ -16,7 +16,7 @@ def get_course_informations(driver, query):
     course_links = []
     levels = []
     skills = []
-
+    '''
     while True:
         # Click 'Load more' button if available
         try:
@@ -25,6 +25,7 @@ def get_course_informations(driver, query):
             time.sleep(3)
         except:
             break
+    '''
     soup = BeautifulSoup(driver.page_source, 'lxml')
 
     course_elements = soup.select('article.StyledResultItem-sc-5u8a6z-0')

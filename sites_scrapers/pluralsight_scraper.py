@@ -38,7 +38,7 @@ def scrape_pluralsight_courses(query):
     except TimeoutException:
         print('No courses found in Pluralsight')
         return courses
-    scroll_down(driver)
+    #scroll_down(driver)
 
     # After we load all the courses we save the links to the course and its image
     soup = BeautifulSoup(driver.page_source, 'lxml')

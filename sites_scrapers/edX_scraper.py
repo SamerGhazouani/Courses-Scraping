@@ -10,7 +10,7 @@ import langcodes
 # This function will allow us to navigate through all the pages and get all the courses's links
 def get_links(driver, query):
     base_url = f"https://www.edx.org/search?q={query}&tab=course"
-    page_number = 1
+    page_number = 10
     course_links = []
 
     while True:

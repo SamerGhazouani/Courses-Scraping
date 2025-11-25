@@ -10,7 +10,7 @@ import langcodes
 # This function will allow us to navigate through all the pages and get all the courses's links
 def get_links(driver, query):
     base_url = f"https://alison.com/courses?query={query}"
-    page_number = 1
+    page_number = 2
     course_links = []
 
     while True:

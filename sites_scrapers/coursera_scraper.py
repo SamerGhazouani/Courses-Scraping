@@ -36,7 +36,7 @@ def scrape_coursera_courses(query):
     if driver.find_elements(By.CSS_SELECTOR, 'div.css-2q69k0'):
         print('No courses found in Coursera')
         return courses
-    scroll_down(driver)
+    #scroll_down(driver)
 
     # Get the courses links and images from the search results
     soup = BeautifulSoup(driver.page_source, 'lxml')

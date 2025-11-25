@@ -25,7 +25,8 @@ def get_links(driver, base_url):
             link = course_element.get('href')
             if link:
                 course_links.append(f"https://www.codecademy.com{link}")
-
+        break
+        '''
         # Check for the next page link
         next_button = driver.find_element(By.XPATH, "//button[contains(@aria-label, 'Navigate forward to page')]")
         if next_button.is_enabled():
@@ -33,6 +34,7 @@ def get_links(driver, base_url):
             time.sleep(3)
         else:
             break
+        '''
     return course_links
 
 def scrape_codecademy_courses(query):
